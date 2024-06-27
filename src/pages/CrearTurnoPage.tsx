@@ -31,8 +31,8 @@ const CrearTurnoPage: React.FC = () => {
     try {
       const response = await api.post('/turnos', form);
       console.log('Turno creado:', response.data);
-      setOpen(true); // Mostrar Snackbar al crear el turno exitosamente
-      // Aquí puedes manejar la respuesta o redirigir al usuario
+      setOpen(true); 
+      
     } catch (error) {
       console.error('Error creando el turno:', error);
     }
