@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Button, Grid, Avatar } from '@mui/material';
+import { Container, Typography, Button, Grid, Avatar ,Toolbar, IconButton,AppBar,Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { Medico } from '../types/types';
+
 
 const MedicosPage: React.FC = () => {
     const [medicos, setMedicos] = useState<Medico[]>([]);
@@ -20,7 +21,21 @@ const MedicosPage: React.FC = () => {
     }, []);
   
     return (
-        <Container>
+      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' ,minWidth:'100vw'}}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+            </IconButton>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            <Button color="inherit">Especialistas</Button>
+          <Button color="inherit">Turnos</Button>
+          <Button color="inherit">Recetas</Button>
+            </Typography>
+
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+        <Container sx={{marginTop:'30vh'}}>
         <Typography variant="h4" gutterBottom>
           Administrar Médicos
         </Typography>
@@ -37,6 +52,7 @@ const MedicosPage: React.FC = () => {
                   alt={`${medico.nombre} ${medico.apellido}`}
                   src={medico.foto}
                   sx={{ width: 100, height: 100 }}
+
                 />
               </Grid>
               <Grid item>
@@ -51,6 +67,12 @@ const MedicosPage: React.FC = () => {
           ))}
         </Grid>
       </Container>
+      <Box component="footer" sx={{textAlign:'center', py: 3, px: 2, mt: 'auto', backgroundColor: 'primary.main', color: 'white' }}>
+          <Container maxWidth="sm">
+            <Typography variant="body1">Obra Social © {new Date().getFullYear()}</Typography>
+          </Container>
+        </Box>
+      </Box>
     );
   };
   

@@ -28,3 +28,21 @@ export interface Turno {
     email: string;
     password: string;
   }
+
+  export interface Especialidad{
+    id: number;
+    areaespecialidad: string;
+  }
+
+  export interface Disponibilidad{
+    id:number
+    horarios:Blob;
+    ubicacion:string;
+    id_medico:number;
+  }
+
+  export interface Receta{
+    id:number
+    fecha_hora:string
+    turnofk:number
+  }
